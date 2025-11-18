@@ -1,25 +1,16 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot> --}}
-
     <div class="py-12">
         <div class="mx-auto sm:px-6 lg:px-8">
             <div class="p-4 sm:ml-64">
                 <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
 
-{{-- Asumsi file ini berada di resources/views/components/dashboard-stat-card.blade.php --}}
-
                     <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 mb-6">
 
-                        {{-- KARTU 1: TOTAL KENDARAAN --}}
                         <div class="bg-gray-800 dark:bg-[#1f2937] shadow-xl rounded-lg overflow-hidden p-4 border border-gray-700 hover:shadow-2xl transition duration-200 h-36 flex flex-col justify-between">
                             <div class="flex justify-between items-start">
                                 <div>
                                     <p class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-1">TOTAL KENDARAAN</p>
-                                    <p class="text-3xl font-extrabold text-white">{{ $totalMobil ?? 'N/A' }}</p>
+                                    <p class="text-3xl font-extrabold text-white">{{ $stats['totalUnitMobil'] ?? 'N/A' }}</p>
                                 </div>
                                 <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17a1 1 0 011-1h16a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1zm4-1h10M3 11l6-4m5 4l6-4m-12 8h12M4 7h16a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"></path>
@@ -28,12 +19,11 @@
                             <p class="text-xs text-gray-500 mt-2">Seluruh aset yang terdaftar.</p>
                         </div>
 
-                        {{-- KARTU 2: MOBIL TERSEDIA --}}
                         <div class="bg-gray-800 dark:bg-[#1f2937] shadow-xl rounded-lg overflow-hidden p-4 border border-gray-700 hover:shadow-2xl transition duration-200 h-36 flex flex-col justify-between">
                             <div class="flex justify-between items-start">
                                 <div>
                                     <p class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-1">MOBIL TERSEDIA</p>
-                                    <p class="text-3xl font-extrabold text-white">{{ $mobilTersedia ?? 'N/A' }}</p>
+                                    <p class="text-3xl font-extrabold text-white">{{ $stats['totalMobilTersedia'] ?? 'N/A' }}</p>
                                 </div>
                                 <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -42,12 +32,11 @@
                             <p class="text-xs text-gray-500 mt-2">Siap disewa hari ini.</p>
                         </div>
 
-                        {{-- KARTU 3: SEDANG DIRENTAL (Progress Bar) --}}
                         <div class="bg-gray-800 dark:bg-[#1f2937] shadow-xl rounded-lg overflow-hidden p-4 border border-gray-700 hover:shadow-2xl transition duration-200 h-36 flex flex-col justify-between">
                             <div class="flex justify-between items-start">
                                 <div>
                                     <p class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-2">MOBIL DALAM RENTAL</p>
-                                    <div class="text-3xl font-extrabold text-white mb-2">{{ $pemesananDirental ?? 'N/A' }}</div>
+                                    <div class="text-3xl font-extrabold text-white mb-2">{{ $stats['totalMobilDirental'] ?? 'N/A' }}</div>
 
                                     <div class="w-full bg-gray-700 rounded-full h-2">
                                         <div class="bg-blue-400 h-2 rounded-full" style="width: {{ ($pemesananDirental ?? 0) / ($totalMobil ?? 1) * 100 }}%"></div>
@@ -60,12 +49,11 @@
                             <p class="text-xs text-gray-500 mt-2">Unit yang sedang beroperasi.</p>
                         </div>
 
-                        {{-- KARTU 4: MENUNGGU VERIFIKASI (Fokus Proyek TA) --}}
                         <div class="bg-gray-800 dark:bg-[#1f2937] shadow-xl rounded-lg overflow-hidden p-4 border border-gray-700 hover:shadow-2xl transition duration-200 h-36 flex flex-col justify-between">
                             <div class="flex justify-between items-start">
                                 <div>
                                     <p class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-1">MENUNGGU PENGAMBILAN</p>
-                                    <p class="text-3xl font-extrabold text-white">{{ $pemesananMenunggu ?? 'N/A' }}</p>
+                                    <p class="text-3xl font-extrabold text-white">{{ $stats['totalMobilDipesan'] ?? 'N/A' }}</p>
                                 </div>
                                 <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -138,8 +126,6 @@
                         </div>
                     </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
