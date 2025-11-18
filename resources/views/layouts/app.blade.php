@@ -10,6 +10,8 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         {{-- Flowbite CDN --}}
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
@@ -44,13 +46,18 @@
             /* Memastikan elemen div eksternal memiliki ruang yang cukup */
             padding: 20px;
         }
+        .btn-crud {
+            background-color: #059669;
+        }
+        .btn-crud::hover {
+            background-color: #047857;
+        }
         </style>
     </head>
     <body class="font-sans antialiased">
 
             {{-- Backdrop Manual Sidebar --}}
-            <div id="backdrop-overlay" class="fixed inset-0 bg-black/50 z-[999]"></div>
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+            <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
             @include('layouts.sidebar')
@@ -92,7 +99,7 @@
             }
         });
 
-
+        // Chart Settings
         const options = {
         chart: {
             height: "100%",
