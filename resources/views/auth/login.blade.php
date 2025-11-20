@@ -64,7 +64,7 @@
         <!-- Register Link -->
         <div class="flex justify-center mt-4 text-sm text-black">
             <span>Don't have an account?</span>
-            <a href="{{ route('register') }}" class="ms-1 underline- text-[#357DFF] hover:text-[#1f6dff]">
+            <a href="{{ route('register') }}" class="ms-1 underline text-[#357DFF] hover:text-[#ff3c3c]">
                 {{ __('Join Now For Free') }}
             </a>
         </div>

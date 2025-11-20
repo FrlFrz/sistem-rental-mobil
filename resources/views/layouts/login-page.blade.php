@@ -16,18 +16,20 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-outfit text-black antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-[#F5F9FF]">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-black"/>
-                </a>
-            </div>
 
-            <h1 class="mt-4 font-extrabold text-xl text-[#1f6dff]">Sign In To Your Account</h1>
+        <a href="/" class="absolute top-4 right-4 text-gray-500 hover:text-blue-600 p-1 rounded-full transition duration-150" aria-label="Close">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </a>
+
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-[#F5F9FF] rel">
+
+
+            <x-logo-and-title>sign in to your account</x-logo-and-title>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-[#F5F9FF] shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
-
                 <div>
                     <div class="flex items-center my-6">
                         <hr class="flex-grow border-gray-700">
@@ -46,8 +48,8 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
+
     </body>
 </html>

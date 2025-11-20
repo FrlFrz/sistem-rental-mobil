@@ -24,25 +24,25 @@
     <body class="bg-[#F5F9FF] text-[#1b1b18] flex min-h-screen flex-col font-outfit">
 
         <!-- Navigation Bar -->
-        <nav class="flex gap-4 relative w-full h-[70px] bg-[#357DFF]">
-            <div class="container-sm flex justify-end items-center h-full">
+        <nav class="flex gap-4 relative w-full h-[80px] bg-[#357DFF] shadow-md">
+            <div class="container mx-auto px-4 flex justify-between items-center h-full">
                 <a
                     href="{{ url('/') }}"
-                    class="inline-block text-white font-bold tracking-wide px-3.5 py-1 mr-auto text-xl leading-normal"
+                    class="inline-block text-white font-bold tracking-wide px-3.5 py-1 text-xl leading-normal"
                 >
                     CARENTAL
                 </a>
                 @auth
                     <a
                         href="{{ url('/dashboard') }}"
-                        class="inline-block font-bold tracking-wide px-3.5 py-1 mr-32 bg-white border-[#19140035] hover:border-[#1915014a] border text-[#357DFF] rounded-xl text-sm leading-normal"
+                        class="inline-block font-bold tracking-wide px-5 py-2.5 bg-white border-[#19140035] hover:border-[#1915014a] border text-[#357DFF] rounded-xl text-sm leading-none"
                     >
                         Dashboard
                     </a>
                 @else
                     <a
                         href="{{ route('login') }}"
-                        class="inline-block font-bold tracking-wide px-3.5 py-1 mr-32 bg-white border-[#19140035] hover:border-[#1915014a] border text-[#357DFF] rounded-xl text-sm leading-normal"
+                        class="inline-block font-bold tracking-wide px-5 py-2.5 bg-white border-[#19140035] hover:border-[#1915014a] border text-[#357DFF] rounded-xl text-sm leading-none"
                     >
                         Login
                     </a>
@@ -51,57 +51,50 @@
             </div>
         </nav>
 
-
-
         <!-- Page Content -->
-        <div class="relative w-full">
-            <img src="{{ asset('images/MAIN PICTURE.jpg')}}" alt="" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-[#357DFF]/60"></div>
+        <x-homepage-title/>
 
-            <!-- Object di atas gambar -->
-            <div class="absolute inset-0 flex flex-col items-center  text-center text-white">
-                <p class="text-5xl tracking-wider text-[#ffe645] font-bold mt-11 mb-2">RENTAL MOBIL TERBAIK DI MALANG</p>
-                <p class="text-3xl mt-9 font-bold mb-1">Booking Sekarang, Mobil Siap Jalan Kapan Pun!</p>
-                <p class="text-lg">Telah Dipercaya Sejak 1945</p>
+        <div class="container mx-auto px-2 flex flex-col lg:flex-row justify-center items-center gap-6 mb-20 mt-32">
 
-                <div class="relative h-[200px] w-[800px]">
+            <!-- CARD 1 -->
+            <div class="relative w-96 rounded-2xl overflow-hidden shadow-xl">
 
-                    <!-- Konten di atas gambar -->
-                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+                <img src="{{ asset('images/IMAGE-SEE-CAR-LIST.jpg') }}" alt="Rent Now" class="w-full h-auto object-cover"/>
 
-                        <!-- Wrapper utama -->
-                        <div class="relative w-full flex justify-center">
-                            <!-- Card berwarna -->
-                            <div class="bg-[#ffee00] rounded-xl shadow-lg px-6 py-4 w-full max-w-5xl flex items-center justify-between">
+                <div class="absolute top-36 bottom-0 left-0 right-0 bg-black bg-opacity-40 flex items-end p-4">
+                    <div class="flex justify-between items-center w-full">
+                        <p class="text-white text-2xl font-bold capitalize">see car list</p>
 
-                                <!-- Kiri: semua input -->
-                                <div class="flex flex-wrap items-center gap-4">
-
-                                    <!-- Pick-up date -->
-                                    <div class="flex flex-col">
-                                        <label class="text-black text-sm font-semibold">Pick-up date</label>
-                                        <input type="date"
-                                                class="text-black border rounded-md px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    </div>
-
-                                    <!-- Drop-off date -->
-                                    <div class="flex flex-col">
-                                        <label class="text-black text-sm font-semibold">Drop-off date</label>
-                                        <input type="date"
-                                                class="text-black border rounded-md px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    </div>
-                                </div>
-
-                                <!-- Kanan: tombol search -->
-                                <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md">
-                                    Search
-                                </button>
-                            </div>
-                        </div>
+                        <a href="#" class="bg-white p-2 rounded-full hover:bg-gray-200 transition">
+                            <svg class="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 12h-11m6-6l6 6-6 6"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
+
+            <!-- CARD 2 -->
+            <div class="relative w-96 rounded-2xl overflow-hidden shadow-xl">
+
+                <img src="{{ asset('images/IMAGE-RENT-NOW.jpg') }}" alt="Rent Now" class="w-full h-auto object-cover"/>
+
+                <div class="absolute top-36 bottom-0 left-0 right-0 bg-black bg-opacity-40 flex items-end p-4">
+                    <div class="flex justify-between items-center w-full">
+                        <p class="text-white text-2xl font-bold capitalize">rent now</p>
+
+                        <a href="#" class="bg-white p-2 rounded-full hover:bg-gray-200 transition">
+                            <svg class="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 12h-11m6-6l6 6-6 6"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <h1 class="container flex justify-center mt-32 text 2">Why must choose us?</h1>
 
         <!-- Validator -->
         @if (Route::has('login'))
