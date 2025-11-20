@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nik_penyewa', 11);
             $table->string('telepon_penyewa', 15);
             $table->string('alamat_penyewa', 100);
-            $table->enum('jaminan_penyewa', ['paspor', 'stnk', 'bpkb', 'sim']); 
+            $table->enum('jaminan_penyewa', ['paspor', 'stnk', 'bpkb', 'sim']);
             $table->dateTime('tgl_mulai');
             $table->dateTime('tgl_selesai');
             $table->decimal('total_biaya', 10, 2)->default(0);
