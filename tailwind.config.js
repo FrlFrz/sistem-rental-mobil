@@ -13,9 +13,14 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                outfit: ['Outfit', 'sans-serif'],
             },
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        require('autoprefixer'),
+        require('@tailwindcss/postcss'),
+    ],
 };
