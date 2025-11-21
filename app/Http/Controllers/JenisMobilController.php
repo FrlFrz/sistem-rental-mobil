@@ -21,6 +21,7 @@ class JenisMobilController extends Controller
         $validatedData = $request->validate([
             'merek' => ['required', 'string', 'max:255'],
             'tahun' => ['required', 'integer'],
+            'harga_rental_per_hari' => ['required', 'integer'],
             'kapasitas' => ['required', 'integer', 'min:2', 'max:8'],
             'foto_mobil' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
         ]);
@@ -49,6 +50,7 @@ class JenisMobilController extends Controller
         $validatedData = $request->validate([
             'merek' => ['required', 'string', 'max:255'],
             'tahun' => ['required', 'integer'],
+            'harga_rental_per_hari' => ['required', 'integer'],
             'kapasitas' => ['required', 'integer', 'min:2', 'max:8'],
             'foto_mobil' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
         ]);

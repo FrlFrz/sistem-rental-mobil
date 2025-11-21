@@ -55,6 +55,7 @@
                                 <th scope="col" class="px-6 py-3">Gambar</th>
                                 <th scope="col" class="px-6 py-3">Merek</th>
                                 <th scope="col" class="px-6 py-3">Tahun</th>
+                                <th scope="col" class="px-6 py-3">Harga/hari</th>
                                 <th scope="col" class="px-6 py-3">Kapasitas</th>
                                 <th scope="col" class="px-6 py-3">Aksi</th>
                             </tr>
@@ -69,16 +70,8 @@
                                     {{ $jenis_mobil->merek }}
                                 </td>
                                 <td class="px-6 py-4">{{ $jenis_mobil->tahun }}</td>
+                                <td class="px-6 py-4">Rp.{{ number_format($jenis_mobil->harga_rental_per_hari, 0, ',', '.') }}</td>
                                 <td class="px-6 py-4">{{ $jenis_mobil->kapasitas }}</td>
-                                {{-- <td class="px-6 py-4">
-                                    <span class="px-2 py-1 text-xs font-semibold rounded-full
-                                    @if($jenis_mobil->status_kendaraan == 'tersedia') bg-green-100 text-green-800
-                                    @elseif($jenis_mobil->status_kendaraan == 'dirental') bg-yellow-100 text-yellow-800
-                                    @else bg-red-100 text-red-800
-                                    @endif">
-                                        {{ ucfirst($jenis_mobil->status_kendaraan) }}
-                                    </span>
-                                </td> --}}
                                 <td class="px-6 py-4">
                                     <div class="flex space-x-2 items-center">
                                         <button data-modal-target="edit-modal-{{ $jenis_mobil->id_jenis_mobil }}" data-modal-toggle="edit-modal-{{ $jenis_mobil->id_jenis_mobil }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>

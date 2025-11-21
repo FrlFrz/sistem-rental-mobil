@@ -15,6 +15,7 @@ class JenisMobil extends Model
     protected $fillable = [
         'merek',
         'tahun',
+        'harga_rental_per_hari',
         'kapasitas',
         'foto_mobil',
     ];
