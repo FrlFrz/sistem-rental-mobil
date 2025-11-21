@@ -4,16 +4,30 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Username')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        {{-- Nama Depan --}}
+        <div>
+            <x-input-label for="nama_depan" :value="__('Nama Depan')" />
+            <x-text-input id="nama_belakang" class="block mt-1 w-full" type="text" name="nama_depan" :value="old('nama_depan')" required autofocus />
+            <x-input-error :messages="$errors->get('nama_depan')" class="mt-2" />
+        </div>
+
+        {{-- Nama Belakang --}}
+        <div>
+            <x-input-label for="nama_belakang" :value="__('Nama Belakang')" />
+            <x-text-input id="nama_belakang" class="block mt-1 w-full" type="text" name="nama_belakang" :value="old('nama_belakang')" required autofocus />
+            <x-input-error :messages="$errors->get('nama_belakang')" class="mt-2" />
+        </div>
+
         <!-- Tanggal Lahir -->
         <div class="mt-4">
-            <x-input-label for="date_of_birth" :value="__('Date of Birth')" />
-            <x-text-input id="date_of_birth" class="block mt-1 w-full" type="date" name="date_of_birth" :value="old('date_of_birth')" required />
-            <x-input-error :messages="$errors->get('date_of_birth')" class="mt-2" />
+            <x-input-label for="tanggal_lahir" :value="__('Tanggal Lahir')" />
+            <x-text-input id="tanggal_lahir" class="block mt-1 w-full" type="date" name="tanggal_lahir" :value="old('tanggal_lahir')" required />
+            <x-input-error :messages="$errors->get('tanggal_lahir')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
