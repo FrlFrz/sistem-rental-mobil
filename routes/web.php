@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\JenisMobilController;
 use App\Http\Controllers\UnitMobilController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Request;
+use App\Http\Controllers\JenisMobilController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,13 +21,16 @@ Route::get('/verifikasi-pelanggan', function () {
     return view('admin.verifikasi-pelanggan');
 })->middleware(['auth', 'verified'])->name('verifikasi-pelanggan');
 
-Route::get('/verifikasi-pelanggan', function () {
-    return view('admin.verifikasi-pelanggan');
-})->middleware(['auth', 'verified'])->name('verifikasi-pelanggan');
-
 Route::get('/order-summaries', function () {
     return view('order-summaries');
-});
+})->middleware(['auth', 'verified'])->name('order-summaries');
+
+Route::get('/katalog', function (Request $request) {
+    return view('layouts.katalog');
+})->name('katalog.index');
+
+Route::get('/search', [SearchController::class, 'index']);  
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -39,3 +44,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
