@@ -31,7 +31,6 @@ class RegisteredUserController extends Controller
     {
         // dd($request);
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
             'nama_depan' => ['required', 'string', 'max:255'],
             'nama_belakang' => ['required', 'string', 'max:255'],
             'tanggal_lahir' => ['required', 'date', 'before:today'],
@@ -40,7 +39,6 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
-            'name' => $request->name,
             'nama_depan' => $request->nama_depan,
             'nama_belakang' => $request->nama_belakang,
             'tanggal_lahir' => $request->tanggal_lahir,

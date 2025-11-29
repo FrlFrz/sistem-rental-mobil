@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('pemesanan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_unit_mobil')->constrained('unit_mobil');
+            $table->foreignId('id_unit_mobil');
             $table->foreignId('user_id')->constrained('users');
             $table->string('nama_penyewa');
-            $table->string('nik_penyewa', 11);
+            $table->string('nik_penyewa', 18);
             $table->string('telepon_penyewa', 15);
             $table->string('alamat_penyewa', 100);
             $table->enum('jaminan_penyewa', ['paspor', 'stnk', 'bpkb', 'sim']);

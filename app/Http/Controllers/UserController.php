@@ -21,7 +21,6 @@ class UserController extends Controller
 
     public function store(Request $request) {
         $validatedData = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
             'nama_depan' => ['required', 'string', 'max:255'],
             'nama_belakang' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
@@ -46,7 +45,6 @@ class UserController extends Controller
     public function update(Request $request, User $akun_user) {
 
         $validatedData = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
             'nama_depan' => ['required', 'string', 'max:255'],
             'nama_belakang' => ['string', 'max:255', 'nullable'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
