@@ -28,7 +28,7 @@
                   Hai, {{ Auth::user()->nama_depan }}!
                 </p>
                 <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                  {{ Auth::user()->email }}
+                  {{ Auth::user()->email ?? 'Guest' }}
                 </p>
               </div>
               <ul class="py-1" role="none">
