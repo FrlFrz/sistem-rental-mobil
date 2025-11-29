@@ -15,32 +15,38 @@
 
                 <!-- Wrapper utama -->
                 <div class="relative w-full flex justify-center">
+
                     <!-- Card berwarna -->
+                    <form action="{{ route('katalog.index') }}" method="GET" class="relative w-full flex justify-center"    >
                     <div class="bg-[#ffee00] rounded-xl shadow-lg px-6 py-4 w-full max-w-5xl flex items-center justify-between">
 
                         <div class="flex flex-wrap items-center gap-4">
-
                             <!-- Pick-up date -->
                             <div class="flex flex-col">
                                 <label class="text-black text-sm font-semibold">Pick-up date</label>
                                 <input type="date"
-                                        class="text-black border rounded-md px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                       name="pickup_date"
+                                       class="text-black border rounded-md px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             </div>
+
 
                             <!-- Drop-off date -->
                             <div class="flex flex-col">
                                 <label class="text-black text-sm font-semibold">Drop-off date</label>
                                 <input type="date"
-                                        class="text-black border rounded-md px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                       name="dropoff_date"
+                                       class="text-black border rounded-md px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             </div>
                         </div>
 
                         <!-- Kanan: tombol search -->
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md">
                             Search
                         </button>
                     </div>
                 </div>
+                </form>
+
             </div>
         </div>
     </div>
