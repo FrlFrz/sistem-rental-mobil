@@ -19,13 +19,6 @@
                 @csrf
                 <div class="grid gap-4 grid-cols-2 py-4 md:py-6">
 
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2.5 text-sm font-medium text-gray-300">Username</label>
-                        <input type="text" name="name" id="name"
-                            class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full px-3 py-2.5 placeholder:text-gray-400"
-                            placeholder="Contoh: FrlFrz" required="" minlength="100">
-                    </div>
-
                     <div class="col-span-2 sm:col-span-1">
                         <label for="nama_depan" class="block mb-2.5 text-sm font-medium text-gray-300">Nama Depan</label>
                         <input type="text" name="nama_depan" id="nama_depan"

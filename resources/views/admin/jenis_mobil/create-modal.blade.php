@@ -46,8 +46,15 @@
                     </div>
 
                     <div class="col-span-2">
+                        <label for="harga_rental_per_hari" class="block mb-2.5 text-sm font-medium text-gray-300">Harga / hari (Rp)</label>
+                        <input type="text" name="harga_rental_per_hari" id="harga_rental_per_hari"
+                            class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full px-3 py-2.5 placeholder:text-gray-400"
+                            placeholder="Contoh: 250000" required="">
+                    </div>
+
+                    <div class="col-span-2">
                         <label for="foto_mobil" class="block mb-2.5 text-sm font-medium text-gray-300">Foto Mobil</label>
-                        <input class="cursor-pointer block w-full text-sm text-gray-200 bg-gray-700 border border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 shadow-sm p-2.5 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700" aria-describedby="file_input_help" id="file_input" type="file" name="foto_mobil">
+                        <input class="block w-full text-sm text-gray-200 bg-gray-700 border border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 file:bg-indigo-600 file:text-white" aria-describedby="file_input_help" id="file_input" type="file" name="foto_mobil">
                         <p class="mt-1 text-sm text-gray-400" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 2MB).</p>
 
                         <div id="dropzone-area" class="mt-2 flex flex-col items-center justify-center w-full h-64 bg-gray-700 border-2 border-dashed border-gray-600 rounded-lg">

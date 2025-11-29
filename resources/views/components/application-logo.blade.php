@@ -1,2 +1,1 @@
 <img src="{{ asset('images/LOGO.png') }}" alt="Logo Carental" {{ $attributes }} class="w-18 h-20 fill-current text-black">
-

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('merek');
             $table->year('tahun');
             $table->integer('kapasitas');
+            $table->decimal('harga_rental_per_hari', 10, 2);
             $table->string('foto_mobil');
             $table->timestamps();
         });
