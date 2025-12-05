@@ -59,7 +59,10 @@ class JenisMobilController extends Controller
         // dd($data);
         if($request->hasFile('foto_mobil')) {
             if($jenis_mobil->foto_mobil) {
-                Storage::delete('public/jenis_mobil/' . $jenis_mobil->foto_mobil);
+                $pathFotoLengkap = 'jenis_mobil' . '/' . $jenis_mobil->foto_mobil;
+                if(Storage::disk('public')->exists($pathFotoLengkap)) {
+                    Storage::disk('public')->delete($pathFotoLengkap);
+                }
             }
             $file = $request->file('foto_mobil');
             $extension = $file->getClientOriginalExtension();
@@ -90,11 +93,26 @@ class JenisMobilController extends Controller
         }
 
         if ($jenis_mobil->foto_mobil) {
-            Storage::delete('public/jenis_mobil/' . $jenis_mobil->foto_mobil);
+            $pathFotoLengkap = 'jenis_mobil' . '/' . $jenis_mobil->foto_mobil;
+            if(Storage::disk('public')->exists($pathFotoLengkap)) {
+                Storage::disk('public')->delete($pathFotoLengkap);
+            }
         }
 
         $jenis_mobil->delete();
 
         return redirect()->route('jenis_mobil.index')->with('success', 'Jenis mobil berhasil dihapus.');
+    }
+
+    public function katalog() {
+        $allJenis = JenisMobil::withCount(['unit_mobils as stok_tersedia' => function ($query) {
+            $query->where('status_mobil', 'tersedia');
+        }])
+        ->with(['unit_mobils' => function ($query) {
+            $query->where('status_mobil', 'tersedia')->limit(5);
+        }])
+        ->get();
+
+        return view('layouts.katalog', compact('allJenis'));
     }
 }
