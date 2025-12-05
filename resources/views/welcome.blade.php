@@ -10,7 +10,7 @@
 
         <div class="relative max-w-screen-xl mx-auto h-full flex flex-col justify-between p-8 sm:p-16 lg:p-24 text-white">
 
-            <div class="flex justify-end w-full mb-8">
+            <div class="flex justify-end w-full mb-8 space-x-4">
                 @auth
                     <a
                         href="{{ url('/dashboard') }}"
@@ -25,7 +25,13 @@
                          hover:text-gray-900 transition duration-150 ease-in-out">
                         Login
                     </a>
-                @endauth
+                    @endauth
+                <a
+                    href="{{ route('katalog') }}"
+                    class="px-4 py-2 text-sm font-medium text-white border border-white/50 rounded-lg hover:bg-orange-500
+                     hover:text-gray-900 transition duration-150 ease-in-out">
+                    Katalog
+                </a>
             </div>
 
             <div class="max-w-2xl mt-8 mb-8">

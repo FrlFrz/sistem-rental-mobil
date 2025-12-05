@@ -5,7 +5,7 @@
 
         <nav class="flex mb-4" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm font-medium text-gray-500">
-                <li><a href="#" class="hover:text-gray-900">Home</a></li>
+                <li><a href="{{ route("welcome") }}" class="hover:text-gray-900">Home</a></li>
                 <li aria-current="page"><span class="mx-2">/</span><span class="text-gray-900">Electronics</span></li>
             </ol>
         </nav>
@@ -36,10 +36,6 @@
                         </h2>
                         <div id="categories-body" class="hidden pt-2"ria-labelledby="categories-heading">
                             {{-- Isi Konten Kategori --}}
-                            <div class="mb-4">
-                                <input type="text" placeholder="Search for categories" class="w-full p-2 border border-gray-300
-                                rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500">
-                            </div>
                             <ul class="space-y-3 text-sm text-gray-700">
                                 {{-- Checkbox items --}}
                                 <li><input type="checkbox" class="rounded text-blue-600 focus:ring-blue-500 mr-2"> TV, Audio-Video</li>
