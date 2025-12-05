@@ -29,7 +29,7 @@ Route::get('/order-summaries', function () {
 
 Route::get('/katalog', function (Request $request) {
     return view('layouts.katalog');
-})->name('katalog.index');
+})->name('katalog');
 
 Route::get('/histori-pemesanan', [PemesananController::class, 'historiRental'])
     ->name('histori');
