@@ -68,7 +68,6 @@ class PemesananController extends Controller
             'tgl_mulai' => ['required'],
             'durasi_rental' => ['required', 'integer'],
             'tgl_selesai' => ['required'],
-            'pengiriman' => ['required'],
             'pembayaran' => ['required'],
             'bukti_pembayaran' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'total_biaya' => ['required'],
@@ -162,7 +161,6 @@ class PemesananController extends Controller
             'tgl_mulai' => ['required'],
             'durasi_rental' => ['required', 'integer'],
             'tgl_selesai' => ['required'],
-            'pengiriman' => ['required'],
             'pembayaran' => ['required'],
             'bukti_pembayaran' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'total_biaya' => ['required'],
@@ -341,7 +339,7 @@ class PemesananController extends Controller
         $userId = Auth::id();
         $selectHistoriUser = Pemesanan::with('unitMobil.jenis_mobil')->where('user_id', $userId)->latest()->get();
 
-        return view('layouts.histori-rental', compact('selectHistoriUser'));
+        return view('layouts.histori-pemesanan', compact('selectHistoriUser'));
     }
 
     public function getDetailRiwayat($id) {

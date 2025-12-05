@@ -23,6 +23,8 @@ class Pemesanan extends Model
         'tgl_mulai',
         'durasi_rental',
         'tgl_selesai',
+        'pembayaran',
+        'bukti_pembayaran',
         'total_biaya',
         'verification_token',
         'status_pemesanan',
