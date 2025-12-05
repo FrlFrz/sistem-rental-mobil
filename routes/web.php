@@ -11,7 +11,7 @@ use App\Http\Controllers\JenisMobilController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
@@ -27,10 +27,13 @@ Route::get('/order-summaries', function () {
 
 Route::get('/katalog', function (Request $request) {
     return view('layouts.katalog');
-})->name('katalog.index');
+})->name('katalog');
 
-Route::get('/search', [SearchController::class, 'index']);  
+Route::get('/checkout-form', function (Request $request){
+    return view('layouts.checkout-form');
+})->name('checkout-form');
 
+Route::get('/search', [SearchController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

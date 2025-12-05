@@ -16,6 +16,13 @@
             <x-input-error :messages="$errors->get('nama_belakang')" class="mt-2" />
         </div>
 
+        <!-- Last Name -->
+        <div class="mt-4">
+            <x-input-label for="nama_depan" :value="__('Last Name')" />
+            <x-text-input id="nama_depan" class="block mt-1 w-full" type="text" name="nama_depan" :value="old('nama_depan')" required autofocus autocomplete="nama_depan" />
+            <x-input-error :messages="$errors->get('nama_depan')" class="mt-2" />
+        </div>
+
         <!-- Tanggal Lahir -->
         <div class="mt-4">
             <x-input-label for="tanggal_lahir" :value="__('Tanggal Lahir')" />
