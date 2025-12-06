@@ -15,26 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::get('/verifikasi-pelanggan', function () {
-    return view('admin.verifikasi.verifikasi-pelanggan');
-})->middleware(['auth', 'verified'])->name('verifikasi-pelanggan');
-
-Route::get('/order-summaries', function () {
-    return view('order-summaries');
-})->middleware(['auth', 'verified'])->name('order-summaries');
-
-Route::get('/katalog', function (Request $request) {
-    return view('layouts.katalog');
-})->name('katalog');
-
-Route::get('/histori-pemesanan', [PemesananController::class, 'historiRental'])
-    ->name('histori');
-
-Route::get('/search', [SearchController::class, 'index']);
+Route::get('/katalog', [JenisMobilController::class, 'katalog'])
+    ->name('katalog');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -43,6 +25,20 @@ Route::middleware('auth')->group(function () {
 
      Route::get('/qr/konversi/{token}', [PemesananController::class, 'downloadQrCode'])
         ->name('pemesanan.qr.konversi');
+
+    Route::get('/checkout/{jenis_mobil}', [PemesananController::class, 'showCheckoutForm'])
+    ->name('pemesanan.checkout');
+
+    Route::get('/histori-pemesanan', [PemesananController::class, 'historiRental'])
+        ->name('histori');
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    // Route CRUD
+    Route::resource('/jenis_mobil', JenisMobilController::class);
+    Route::resource('/akun_user', UserController::class);
+    Route::resource('/unit_mobil', UnitMobilController::class);
+    Route::resource('/pemesanan', PemesananController::class);
 
     Route::get('/api/riwayat/detail/{id}', [PemesananController::class, 'getDetailRiwayat'])
     ->name('api.riwayat.detail');
@@ -56,13 +52,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/pemesanan/pengembalian/{pemesanan}', [PemesananController::class, 'konfirmasiAksi'])
         ->name('pemesanan.pengembalian');
 
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
 
-    // Route CRUD
-    Route::resource('/jenis_mobil', JenisMobilController::class);
-    Route::resource('/akun_user', UserController::class);
-    Route::resource('/unit_mobil', UnitMobilController::class);
-    Route::resource('/pemesanan', PemesananController::class);
-
+    Route::get('/verifikasi-pelanggan', function () {
+        return view('admin.verifikasi.verifikasi-pelanggan');
+    })->middleware(['auth', 'verified'])->name('verifikasi-pelanggan');
 });
 
 require __DIR__.'/auth.php';

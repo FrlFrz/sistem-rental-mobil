@@ -136,7 +136,7 @@ class PemesananController extends Controller
         $user = Auth::user();
 
         if ($request->has('redirect_to_histori')) {
-            $redirectRoute = 'histori.index';
+            $redirectRoute = 'histori';
         } elseif ($user && $user->roles === 'admin') {
             // 2. Jika tidak ada input khusus dan user adalah admin, arahkan ke manajemen
             $redirectRoute = 'pemesanan.index';
@@ -356,11 +356,13 @@ class PemesananController extends Controller
     }
 
     public function showCheckoutForm(JenisMobil $jenis_mobil) {
-        $availableUnits = UnitMobil::with('jenis_mobil')
-                                    ->where('id_jenis_mobil', $jenis_mobil->id_jenis_mobil)
-                                    ->where('status_mobil', 'tersedia')
-                                    ->first();
+        $availableUnitsFull = $jenis_mobil->unit_mobils()
+            ->where('status_mobil', 'tersedia')
+            ->get();
+        $availableUnits = $availableUnitsFull->unique('warna');
 
-        return view('layouts.checkout', compact('jenis_mobil', 'availableUnits'));
+        $availableColors = $availableUnits->pluck('warna')->values()->all();
+        // dd($availableUnits);
+        return view('layouts.checkout-form', compact('jenis_mobil', 'availableUnits', 'availableColors'));
     }
 }

@@ -21,6 +21,17 @@
             <link rel="stylesheet" href="{{ asset('CSS/style.css') }}">
         </style>
     @endif
+    <style>
+        [data-accordion="collapse"] button[aria-expanded="true"] {
+            background-color: transparent !important;
+            color: inherit !important;
+        }
+
+        [data-accordion="collapse"] button:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    </style>
 </head>
 
 <body class="bg-[#F5F9FF] text-black font-outfit antialiased">
