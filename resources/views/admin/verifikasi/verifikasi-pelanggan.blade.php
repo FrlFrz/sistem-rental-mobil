@@ -252,7 +252,7 @@
                             <h3 class="text-xl font-bold text-green-500">Verifikasi Berhasil!</h3>
 
                             <div class="mt-4 space-y-2 dark:text-white">
-                                <p><strong>Nomor Seri:</strong> ${unit.nomor_seri}</p>
+                                <p><strong>Plat Nomor:</strong> ${unit.plat_nomor}</p>
                                 <p><strong>Merek (Warna):</strong> ${jenis.merek} (${unit.warna})</p>
                                 <p><strong>Penyewa:</strong> ${pemesananData.nama_penyewa}</p>
                                 <p><strong>Jaminan:</strong> ${pemesananData.jaminan_penyewa.toUpperCase()}</p>

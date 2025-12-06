@@ -57,6 +57,7 @@
                                 <th scope="col" class="px-6 py-3">Tahun</th>
                                 <th scope="col" class="px-6 py-3">Harga/hari</th>
                                 <th scope="col" class="px-6 py-3">Kapasitas</th>
+                                <th scope="col" class="px-6 py-3">Transmisi</th>
                                 <th scope="col" class="px-6 py-3">Aksi</th>
                             </tr>
                         </thead>
@@ -72,6 +73,7 @@
                                 <td class="px-6 py-4">{{ $jenis_mobil->tahun }}</td>
                                 <td class="px-6 py-4">Rp.{{ number_format($jenis_mobil->harga_rental_per_hari, 0, ',', '.') }}</td>
                                 <td class="px-6 py-4">{{ $jenis_mobil->kapasitas }}</td>
+                                <td class="px-6 py-4">{{ ucfirst($jenis_mobil->transmisi) }}</td>
                                 <td class="px-6 py-4">
                                     <div class="flex space-x-2 items-center">
                                         <button data-modal-target="edit-modal-{{ $jenis_mobil->id_jenis_mobil }}" data-modal-toggle="edit-modal-{{ $jenis_mobil->id_jenis_mobil }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>

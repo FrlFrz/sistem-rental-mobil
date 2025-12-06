@@ -17,6 +17,7 @@ class JenisMobil extends Model
         'tahun',
         'harga_rental_per_hari',
         'kapasitas',
+        'transmisi',
         'foto_mobil',
     ];
 

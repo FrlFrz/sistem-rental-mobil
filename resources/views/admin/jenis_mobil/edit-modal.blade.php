@@ -50,11 +50,21 @@
                         </select>
                     </div>
 
-                    <div class="col-span-2">
+                    <div class="col-span-2 sm:col-span-1">
                         <label for="harga_rental_per_hari-{{ $jenis_mobil->id_jenis_mobil }}" class="block mb-2.5 text-sm font-medium text-gray-300">Harga / hari (Rp)</label>
                         <input type="text" name="harga_rental_per_hari" id="harga_rental_per_hari-{{ $jenis_mobil->id_jenis_mobil }}"
                             class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full px-3 py-2.5 placeholder:text-gray-400"
-                            placeholder="Contoh: 250000" required="" value="{{ old('harga_rental_per_hari', $jenis_mobil->harga_rental_per_hari) }}">
+                            placeholder="Contoh: 250000" required="" value="{{ round(old('harga_rental_per_hari', $jenis_mobil->harga_rental_per_hari)) }}">
+                    </div>
+
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="transmisi-{{ $jenis_mobil->id_jenis_mobil }}" class="block mb-2.5 text-sm font-medium text-gray-300">Transmisi</label>
+                        <select id="transmisi-{{ $jenis_mobil->id_jenis_mobil }}" name="transmisi"
+                            class="block w-full px-3 py-2.5 bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 placeholder:text-gray-400">
+                            <option disabled>- Pilih Transmisi -</option>
+                            <option value="manual" @selected(old('transmisi', $jenis_mobil->transmisi) == 'manual')>Manual</option>
+                            <option value="matic" @selected(old('transmisi', $jenis_mobil->transmisi) == 'matic')>Matic</option>
+                        </select>
                     </div>
 
                     <div class="col-span-2">
