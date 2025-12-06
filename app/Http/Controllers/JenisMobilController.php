@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Storage;
 use App\Models\JenisMobil;
+use App\Models\UnitMobil;
 use Illuminate\Http\Request;
 
 class JenisMobilController extends Controller
@@ -23,6 +24,7 @@ class JenisMobilController extends Controller
             'tahun' => ['required', 'integer'],
             'harga_rental_per_hari' => ['required', 'integer'],
             'kapasitas' => ['required', 'integer', 'min:2', 'max:8'],
+            'transmisi' => ['required'],
             'foto_mobil' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
         ]);
 
@@ -52,6 +54,7 @@ class JenisMobilController extends Controller
             'tahun' => ['required', 'integer'],
             'harga_rental_per_hari' => ['required', 'integer'],
             'kapasitas' => ['required', 'integer', 'min:2', 'max:8'],
+            'transmisi' => ['required'],
             'foto_mobil' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
         ]);
 
@@ -106,13 +109,27 @@ class JenisMobilController extends Controller
 
     public function katalog() {
         $allJenis = JenisMobil::withCount(['unit_mobils as stok_tersedia' => function ($query) {
-            $query->where('status_mobil', 'tersedia');
-        }])
-        ->with(['unit_mobils' => function ($query) {
-            $query->where('status_mobil', 'tersedia')->limit(5);
-        }])
-        ->get();
+                $query->where('status_mobil', 'tersedia');
+            }])
+            ->with(['unit_mobils' => function ($query) {
+                $query->select('id_jenis_mobil', 'warna');
+            }])
+            ->get();
 
+        $allJenis = $allJenis->map(function ($jenis) {
+
+            $warna_unik = $jenis->unit_mobils
+                            ->pluck('warna')
+                            ->unique()
+                            ->values()
+                            ->all();
+
+            $jenis->warna = $warna_unik;
+            unset($jenis->unit_mobils);
+
+            return $jenis;
+        });
+        // dd($allJenis);
         return view('layouts.katalog', compact('allJenis'));
     }
 }
