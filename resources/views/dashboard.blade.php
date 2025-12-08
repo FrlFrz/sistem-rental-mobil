@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-layout=admin-page-template>
     <div class="py-12">
         <div class="mx-auto sm:px-6 lg:px-8">
             <div class="p-4 sm:ml-64">
@@ -166,4 +166,4 @@
             chart.render();
         }
     </script>
-</x-app-layout>
+</x-layout=admin-page-template>

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class why-must-choose-us-section extends Component
+class whyMustChooseUsSection extends Component
 {
     /**
      * Create a new component instance.

@@ -1,5 +1,5 @@
-<x-page-style>
-    @section('title', 'Carental | Register Page')
+<x-user-page-template>
+    @section('title', 'Sign Up')
 
     <a href="{{ route("welcome") }}" class="absolute top-4 right-4 text-gray-500 hover:text-blue-600 p-1
     rounded-full transition duration-150" aria-label="Close">
@@ -17,4 +17,4 @@
 
         </div>
     </div>
-</x-page-style>
+</x-user-page-template>

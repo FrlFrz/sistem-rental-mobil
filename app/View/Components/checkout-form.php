@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class checkout-form extends Component
+class checkoutForm extends Component
 {
     /**
      * Create a new component instance.

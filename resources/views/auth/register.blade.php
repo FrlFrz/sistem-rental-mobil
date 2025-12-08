@@ -3,18 +3,23 @@
         @csrf
 
         {{-- Nama Depan --}}
-        <div>
-            <x-input-label for="nama_depan" :value="__('Nama Depan')" />
-            <x-text-input id="nama_depan" class="block mt-1 w-full" type="text" name="nama_depan" :value="old('nama_depan')" required autofocus />
-            <x-input-error :messages="$errors->get('nama_depan')" class="mt-2" />
-        </div>
+       <div class="flex space-x-4">
 
-        {{-- Nama Belakang --}}
-        <div class="mt-4"z>
-            <x-input-label for="nama_belakang" :value="__('Nama Belakang')" />
-            <x-text-input id="nama_belakang" class="block mt-1 w-full" type="text" name="nama_belakang" :value="old('nama_belakang')" required autofocus />
-            <x-input-error :messages="$errors->get('nama_belakang')" class="mt-2" />
-        </div>
+                <div class="flex-1">
+                    <x-input-label for="nama_depan" :value="__('Nama Depan')" />
+                    <x-text-input id="nama_depan" class="block mt-1 w-full" type="text" name="nama_depan" :value="old('nama_depan')"
+                    required autocomplete="nama_depan" />
+                    <x-input-error :messages="$errors->get('nama_depan')" class="mt-2" />
+                </div>
+
+                <div class="flex-1">
+                    <x-input-label for="nama_belakang" :value="__('Nama Belakang')" />
+                    <x-text-input id="nama_belakang" class="block mt-1 w-full" type="text" name="nama_belakang" :value="old('nama_belakang')"
+                    required autocomplete="nama_belakang" />
+                    <x-input-error :messages="$errors->get('nama_belakang')" class="mt-2" />
+                </div>
+
+            </div>
 
         <!-- Tanggal Lahir -->
         <div class="mt-4">
