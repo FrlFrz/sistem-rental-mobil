@@ -5,11 +5,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\UnitMobilController;
 use Symfony\Component\HttpFoundation\Request;
 use App\Http\Controllers\JenisMobilController;
-use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\VerifikasiController;
+use App\Http\Controllers\UserProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,8 +24,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-     Route::get('/qr/konversi/{token}', [PemesananController::class, 'downloadQrCode'])
-        ->name('pemesanan.qr.konversi');
+    Route::get('/user-profile', [UserProfileController::class, 'edit'])->name('user-profile.edit');
+    Route::patch('/user-profile', [UserProfileController::class, 'update'])->name('user-profile.update');
+    Route::delete('/user-profile', [UserProfileController::class, 'destroy'])->name('user-profile.destroy');
+
+    Route::get('/qr/konversi/{token}', [PemesananController::class, 'downloadQrCode'])
+    ->name('pemesanan.qr.konversi');
 
     Route::get('/checkout/{jenis_mobil}', [PemesananController::class, 'showCheckoutForm'])
     ->name('pemesanan.checkout');

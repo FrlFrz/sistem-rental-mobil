@@ -12,12 +12,15 @@
 
             <div class="flex justify-end w-full mb-8 space-x-4">
                 @auth
+                @if (Auth::user()->roles === 'admin')
                     <a
                         href="{{ url('/dashboard') }}"
                         class="px-4 py-2 text-sm font-medium text-white border border-white/50 rounded-lg hover:bg-blue-700
-                         hover:text-gray-900 transition duration-150 ease-in-out">
+                        hover:text-gray-900 transition duration-150 ease-in-out">
                         Dashboard
                     </a>
+                @endif
+
                 @else
                     <a
                         href="{{ route('login') }}"
@@ -174,7 +177,7 @@
     </div>
 
     <div class="flex justify-center mt-32">
-        <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white
+        <a href="{{ route('katalog') }}" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white
          bg-blue-700 rounded-lg hover:bg-orange-500 focus:ring-4 focus:ring-orange-200 transition duration-150 ease-in-out">
             Sewa Sekarang
             <svg class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
